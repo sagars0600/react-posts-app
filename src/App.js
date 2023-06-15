@@ -108,7 +108,7 @@ const PostsApp = () => {
           <List
             dataSource={currentPosts}
             renderItem={(post) => (
-              <List.Item >
+              <List.Item>
                 <List.Item.Meta title={post.title} description={post.body} />
               </List.Item>
             )}
@@ -120,6 +120,8 @@ const PostsApp = () => {
             onChange={handlePageChange}
             showQuickJumper
             showTotal={(total) => `Total ${total} posts`}
+            showSizeChanger
+            pageSizeOptions={["10"]} // Customize the available page size options
             style={{ marginTop: 16, textAlign: "center" }}
           />
         </>
