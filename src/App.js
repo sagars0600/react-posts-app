@@ -80,8 +80,8 @@ const PostsApp = () => {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <Title level={2} style={{ marginBottom: "1.2rem", color: "DodgerBlue" }}>
+    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <Title level={2} style={{ marginBottom: "1.2rem", color: "black" }}>
         Posts
       </Title>
       <Search
@@ -90,7 +90,7 @@ const PostsApp = () => {
         onChange={(event) => handleSearch(event.target.value)}
         style={{ marginBottom: 16 }}
       />
-      <Title level={4} style={{ marginBottom: "1.2rem", color: "DodgerBlue" }}>
+      <Title level={4} style={{ marginBottom: "1.2rem", color: "black" }}>
         Filter
       </Title>
       <Select
@@ -106,13 +106,24 @@ const PostsApp = () => {
       ) : (
         <>
           <List
-            dataSource={currentPosts}
-            renderItem={(post) => (
-              <List.Item>
-                <List.Item.Meta title={post.title} description={post.body} />
-              </List.Item>
-            )}
-          />
+        dataSource={currentPosts}
+        renderItem={(post) => (
+          <List.Item
+            style={{
+              background: '#f9f9f9',
+              padding: '16px',
+              borderRadius: '4px',
+              marginBottom: '16px',
+              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <List.Item.Meta
+              title={<span style={{ fontWeight: 'bold', color: '#1890ff' }}>{post.title}</span>}
+              description={post.body}
+            />
+          </List.Item>
+        )}
+      />
           <Pagination
             current={currentPage}
             pageSize={postsPerPage}
